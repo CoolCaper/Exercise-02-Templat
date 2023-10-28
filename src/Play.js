@@ -49,7 +49,43 @@ class Play extends Phaser.Scene {
         this.SHOT_VELOCITY_X = 200
         this.SHOT_VELOCITY_Y_MIN = 700
         this.SHOT_VELOCITY_Y_MAX = 1100
+        this.physics.add.collider(this.ball, this.walls)
+        this.physics.add.collider(this.ball, this.oneWay);
 
+
+        let score = {
+            fontFamily: 'Courier',
+            fontSize: '28px',
+            backgroundColor: '#F3B141',
+            color: '#843605',
+            align: 'right',
+            padding: {
+              top: 5,
+              bottom: 5,
+            },
+            fixedWidth: 100
+          }
+
+        let percent = {
+            fontFamily: 'Courier',
+            fontSize: '28px',
+            backgroundColor: '#F3B141',
+            color: '#843605',
+            align: 'right',
+            padding: {
+              top: 5,
+              bottom: 5,
+            },
+            fixedWidth: 100
+          }
+    }
+    }
+
+    
+
+    update() {
+        //if hole in reset 
+        //counters
         this.input.on('pointerdown', (pointer) => {
             let shotDirection 
             pointer.y <= this.ball.y ? shotDirection = 1 : shotDirection = -1
@@ -59,11 +95,5 @@ class Play extends Phaser.Scene {
         this.physics.add.collider(this.ball, this.cup, (ball, cup) => {
             ball.destroy()
         })
-        this.physics.add.collider(this.ball, this.walls)
-        this.physics.add.collider(this.ball, this.oneWay);
-    }
-
-    update() {
-
     }
 }
