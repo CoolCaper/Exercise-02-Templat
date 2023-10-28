@@ -50,11 +50,6 @@ class Play extends Phaser.Scene {
         this.SHOT_VELOCITY_Y_MIN = 700
         this.SHOT_VELOCITY_Y_MAX = 1100
 
-        this.physics.add.collider(this.ball, this.walls)
-        this.physics.add.collider(this.ball, this.oneWay);
-    }
-
-    update() {
         this.input.on('pointerdown', (pointer) => {
             let shotDirection 
             pointer.y <= this.ball.y ? shotDirection = 1 : shotDirection = -1
@@ -64,6 +59,11 @@ class Play extends Phaser.Scene {
         this.physics.add.collider(this.ball, this.cup, (ball, cup) => {
             ball.destroy()
         })
+        this.physics.add.collider(this.ball, this.walls)
+        this.physics.add.collider(this.ball, this.oneWay);
+    }
+
+    update() {
 
     }
 }
