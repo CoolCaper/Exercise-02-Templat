@@ -78,10 +78,7 @@ class Play extends Phaser.Scene {
             },
             fixedWidth: 100
           }
-    }
-    }
-
-    
+    }   
 
     update() {
         //if hole in reset 
